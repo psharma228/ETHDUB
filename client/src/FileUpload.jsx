@@ -4,6 +4,8 @@ const FileUpload=()=>{
 const [file,setFile]=useState(null);
 const [cid,setCid]=useState("");
 const [transaction,setTransaction]=useState("");
+const [isMinted, setIsMinted] = useState(false);
+
     const handleSubmit =async(event)=>{
         event.preventDefault();
          try{
@@ -31,7 +33,8 @@ const [transaction,setTransaction]=useState("");
                     setTransaction(data.transactionHash)
                    console.log(data.cid)
                    console.log(data.transactionHash)
-                 })
+                   setIsMinted(true);
+                })
                  .catch(error=>{
                      console.error(error);
                  })
@@ -56,12 +59,18 @@ return<>
     <div className="transaction">
      {transaction && <a href={`https://goerli.etherscan.io/tx/${transaction}`}>Transaction Details</a>}
 </div>
- <div className="form">
+ {!isMinted && <div className="form">
     <form onSubmit={handleSubmit}>
     <input type="file" className="choose" onChange={retreieveFile}/>
     <button className="btn">Mint</button>
     </form>
-    </div>
+    </div>}
+    
+    {isMinted && ( // Render list button if minted
+        <div className="list-button">
+          <button className="btn">List</button>
+        </div>
+      )}
 </>
 }
 export default FileUpload;

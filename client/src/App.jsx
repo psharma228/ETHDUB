@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <header className="main-header">
-        <h1>Welcome to DPub Dapp</h1>
+        <h1>Start minting your assets</h1>
         <nav className="nav">
           <ul>
             <li>

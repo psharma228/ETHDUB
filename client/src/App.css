@@ -18,6 +18,15 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.title {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  transition: ease-in all 0.5s;
+  border: #ffffff solid 2px;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
